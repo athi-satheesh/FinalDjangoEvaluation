@@ -1,0 +1,25 @@
+{% extends 'student_index.html' %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h4 style="text-align: center">Your Info</h4>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card text-black bg-warning mb-3">
+            <div class="card-body">
+              <h5 class="card-title" style="color:black; text-align:center;">{{ data.name }}</h5>
+              <p class="card-text"><strong>Date of Birth:</strong> {{ data.dob }}</p>
+              <p class="card-text"><strong>Contact Number:</strong> {{ data.contact_number }}</p>
+              <div class="d-flex justify-content-between mt-3">
+                <form action="{% url 'updateInfo' data.id %}" method="post">
+                  {% csrf_token %}
+                  <button type="submit" class="btn btn-outline-dark" style="margin-left:55px">Update</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+{% endblock %}

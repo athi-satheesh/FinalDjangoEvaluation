@@ -1,0 +1,21 @@
+{% extends 'admin_index.html' %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<h4 style="text-align: center">ADD MARKS</h4>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+<form method="POST">
+                {% csrf_token %}
+                {{addMark_form|crispy}}
+                <button type="submit" class="btn btn-info" >Add</button>
+</form>
+        </div>
+    </div>
+</div>
+</center>
+
+{% endblock %}

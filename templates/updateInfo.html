@@ -1,0 +1,20 @@
+{% extends 'admin_index.html' %}
+{% load crispy_forms_filters %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h1 class="text-center display-4">Update Info</h1>
+        </div>
+        <div class="col-md-8">
+            <form method="POST" enctype="multipart/form-data">
+                 {% csrf_token %}
+                {{ stud_form|crispy }}
+        <button type="submit" class="btn btn-warning">Update</button>
+                </form>
+    </div>
+    </div>
+</div>
+        </div>
+{% endblock %}
+

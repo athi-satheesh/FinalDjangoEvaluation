@@ -1,0 +1,27 @@
+{% extends 'admin_index.html' %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<h4 style="text-align: center">LIST OF STUDENTS</h4>
+
+<table class="table table-bordered table-sm " style="text-align: center">
+    <tr>
+        <th>Photo</th>
+        <th>Name</th>
+        <th>DOB</th>
+        <th>Contact Number</th>
+    </tr>
+    {% for x in data %}
+    <tr>
+        <td><img src="{{ x.photo.url }}"/></td>
+        <td>{{ x.name }}</td>
+        <td>{{x.dob}}</td>
+        <td>{{x.contact_number}}</td>
+        <td>{{age}}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}

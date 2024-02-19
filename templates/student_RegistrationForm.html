@@ -1,0 +1,20 @@
+{% extends 'regForm_base.html' %}
+{% load crispy_forms_filters %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="container">
+    <div class="row">
+         <div class="col-md-8">
+             <h4 style="text-align:center; color:grey">STUDENT REGISTRATION</h4>
+    </div>
+<div class="col-md-8">
+<form method="POST"  enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ reg_form|crispy }}
+                {{ stud_form|crispy }}
+    <button type="submit" class="btn btn-primary">Sign Up</button>
+</form>
+        </div>
+    </div>
+</div>
+{% endblock %}

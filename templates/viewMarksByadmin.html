@@ -1,0 +1,33 @@
+{% extends 'admin_index.html' %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<h4 style="text-align: center">Mark List</h4>
+
+<table class="table table-bordered table-sm " style="text-align: center">
+    <tr>
+        <th>Name</th>
+        <th>English</th>
+        <th>Maths</th>
+        <th>Science</th>
+        <th>Update Marks</th>
+    </tr>
+    {% for x in data1 %}
+    <tr>
+        <td>{{ x.name }}</td>
+        <td>{{ x.english }}</td>
+        <td>{{ x.maths }}</td>
+        <td>{{ x.science }}</td>
+         <td> <form method="POST" action="{% url 'updateMarks' x.id %}" >
+                {% csrf_token %}
+                {{ data1|crispy }}
+             <input type="submit" class="btn btn-outline-primary" value="Update"/>
+            </form>
+         </td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}
